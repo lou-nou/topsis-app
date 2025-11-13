@@ -63,8 +63,10 @@ def topsis(criteria_data: pd.DataFrame, weights: pd.Series, impacts: list[str], 
 # UI : logo + titre
 # =========================================================
 try:
-    logo = Image.open("logo.png")
-    st.image(logo, width=120)
+    col1, col2, col3 = st.columns([1,2,1])
+    with col2:
+        logo = Image.open("logo.png")
+        st.image(logo, width=180)
 except FileNotFoundError:
     pass
 
@@ -243,3 +245,4 @@ st.download_button(
     file_name="resultats_topsis.xlsx",
     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 )
+
